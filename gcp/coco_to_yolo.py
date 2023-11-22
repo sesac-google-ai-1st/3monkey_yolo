@@ -43,7 +43,26 @@ def yolov8(file_path, save_txt_path):
                     senter_y = float(spot[1]) + float(height/2)
 
                     x_center, y_center, w_box, h_box = round(senter_x/img_w, 5), round(senter_y/img_h, 5), round(width/img_w, 5), round(height/img_h, 5)
+                    box_x.append(x_center)
+                    box_y.append(y_center)
+                    box_w.append(w_box)
+                    box_h.append(h_box)
 
+                    save_path = './' + file_name + '.txt'
+                    file_col.append(file_name)
+
+                    # 문자형 -> 숫자형 
+                    if class_type == 'car':
+                        class_type = 0
+                    elif class_type == 'bus':
+                        class_type = 1
+                    elif class_type == 'truck':
+                        class_type = 2 
+                    type.append(class_type)
+
+                    save_note =f'{class_type} {x_center} {y_center} {w_box} {h_box}'
+                    json_content.append(save_note)
+                    
                 except:
                     class_type = json_data['annotations']['image'][a]['box']['@label']
                     spot = [json_data['annotations']['image'][a]['box']['@xtl'], json_data['annotations']['image'][a]['box']['@ytl'], \
@@ -57,25 +76,26 @@ def yolov8(file_path, save_txt_path):
 
                     x_center, y_center, w_box, h_box = round(senter_x/img_w, 5), round(senter_y/img_h, 5), round(width/img_w, 5), round(height/img_h, 5)
 
-                box_x.append(x_center)
-                box_y.append(y_center)
-                box_w.append(w_box)
-                box_h.append(h_box)
+                    box_x.append(x_center)
+                    box_y.append(y_center)
+                    box_w.append(w_box)
+                    box_h.append(h_box)
 
-                save_path = './' + file_name + '.txt'
-                file_col.append(file_name)
+                    save_path = './' + file_name + '.txt'
+                    file_col.append(file_name)
 
-                # 문자형 -> 숫자형 
-                if class_type == 'car':
-                    class_type = 0
-                elif class_type == 'bus':
-                    class_type = 1
-                elif class_type == 'truck':
-                    class_type = 2 
-                type.append(class_type)
+                    # 문자형 -> 숫자형 
+                    if class_type == 'car':
+                        class_type = 0
+                    elif class_type == 'bus':
+                        class_type = 1
+                    elif class_type == 'truck':
+                        class_type = 2 
+                    type.append(class_type)
 
-                save_note =f'{class_type} {x_center} {y_center} {w_box} {h_box}'
-                json_content.append(save_note)
+                    save_note =f'{class_type} {x_center} {y_center} {w_box} {h_box}'
+                    json_content.append(save_note)
+                    break
 
         # 파일 다루기 편한 데이터 타입생성
     convert_txt = pd.DataFrame({
