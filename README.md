@@ -1,4 +1,4 @@
-![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/19fbd9b9-1940-4661-ae2c-a14902e55a55)# 3monkey_yolo project : 고속도로 cctv📡 프로젝트
+### 3monkey_yolo project : 고속도로 cctv📡 프로젝트
 
 
 고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.
