@@ -92,5 +92,5 @@ ver.2
 ```
 ---
 #### Refrence
-[yolo v8 ](https://github.com/ultralytics/ultralytics)
-[data 출처:](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
+[yolo v8 ](https://github.com/ultralytics/ultralytics)  
+[data 출처](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
