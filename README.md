@@ -6,8 +6,9 @@ yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional netwo
 
 ![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/25107f2a-e135-40e8-952e-8179b90b753a)
 
-또한 YOLO는 굉장히 빠릅니다. 왜냐하면 YOLO는 기존의 복잡한 객체 검출 프로세스를 하나의 회귀 문제로 바꾸었기 때문입니다.
-![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/3a6a45bf-a3aa-469a-8576-bfbee0e24ccc)
+또한 YOLO는 굉장히 빠릅니다. 왜냐하면 YOLO는 기존의 복잡한 객체 검출 프로세스를 하나의 회귀 문제로 바꾸었기 때문입니다.  
+![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/99016a26-b7b1-4386-b0e2-bc8f401e0073.gif)
+
 
 
 이러한 여러가지 장점으로 인해서 이번 프로젝트의 알고리즘으로 yolo를 선정하게 되었습니다. 
