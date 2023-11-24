@@ -1,4 +1,4 @@
-# 3monkey_yolo project : 고속도로 cctv 프로젝트
+# 3monkey_yolo project : 고속도로 cctv📡 프로젝트
 
 
 고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolov8 모델로 학습한 프로젝트 입니다.
@@ -77,7 +77,7 @@ def write_yolov8_txt(folder, annotation):
 ```
 ---
 ###  08_yolov8.ipynb description
-yolo nano 모델을 활용하여서 24천 건의 3가지 라벨 데이터를 학습 시켰다.
+🚀yolo nano 모델을 활용하여서 24천 건의 3가지 라벨 데이터를 학습 시켰다.
 하이퍼 파라미터는 아래와 같다.
 
 ver.1
