@@ -3,8 +3,8 @@
 <br/>
 <br/>
 
-<center>고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.
-yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다. </center>
+<center>고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.<br/><br/>
+yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다. </center><br/><br/>
 
 
 ![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/25107f2a-e135-40e8-952e-8179b90b753a)
