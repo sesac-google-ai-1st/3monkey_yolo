@@ -99,6 +99,7 @@ ver.2
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
 ---
+
 ### 테스트 결과 
 
 ---
