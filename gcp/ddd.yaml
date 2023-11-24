@@ -1,0 +1,7 @@
+train : ./train/
+val : ./valid/
+
+names :
+    0 : car
+    1 : bus
+    2 : truck
