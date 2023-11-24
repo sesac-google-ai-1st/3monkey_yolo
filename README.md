@@ -6,13 +6,13 @@
 ### 01_download_unzip.ipynb description
 버킷에서 파일을 다운로드하기 위해서 gcp jupyterLab에서 명령어를 입력해 준다. 
 
-'''
+```
 python
 # 데이터 다운 및 압축해제
 !gsutil -m cp gs://sessac-project-05-bucket-01/Train라벨_1.수도권영동선.zip Train라벨_1.수도권영동선.zip
 
 output_folder = '/home/jupyter/datasets/xml_train/'
-'''
+```
 ---
 
 ### 04_val_drop_file.ipynb & description
