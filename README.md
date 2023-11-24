@@ -1,7 +1,9 @@
 # 3monkey_yolo project : 고속도로 cctv📡 프로젝트
 
 
-고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolov8 모델로 학습한 프로젝트 입니다.
+고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.
+
+![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/25107f2a-e135-40e8-952e-8179b90b753a)
 
 ---
 
@@ -89,3 +91,5 @@ ver.2
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
 ---
+#### Refrence
+[yolo v8 ](https://github.com/ultralytics/ultralytics)
