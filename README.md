@@ -4,6 +4,7 @@
 <br/>
 <br/>
 <br/>
+### Project Description
 
 <center>고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.<br/><br/>
 yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다.(1) </center><br/><br/>
@@ -15,6 +16,27 @@ yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional netwo
 ![yolo](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/67566326-419a-4190-a41e-e267b7c5de76)  
 이러한 여러가지 장점으로 인해서 이번 프로젝트의 알고리즘으로 yolo를 선정하게 되었습니다.   
 
+---
+### Preferences
+
+GCP : Vertex AI
+인스턴스 노트북 사양 : 
+- 환경 : pytorch:1.13
+- 머신유형 : cpu 32개 메모리 120gb, gpu v100 4장
+- 디스크 : data 200gb, boot 200gb
+
+개발 환경 : 
+- python =3.10
+- pandas
+- numpy
+- xmltodict (xml파일 dict형으로 변환)
+- ultralytics = 8.0.20 (최신버전은 에폭당 클래스 map 확인 불가. 버전 낮춤.)
+
+데이터(2)
+- tarin 데이터
+1~4 채널
+- validation 데이터
+1~4 채널
 ---
 
 ### 01_download_unzip.ipynb description
@@ -153,7 +175,7 @@ ver.2
 ---
 #### Refrence
 (1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
-
+(2) : [AI허브 cctv데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=164)
 (3) : [epochs,batch](https://otugi.tistory.com/350)
 
 [data 출처](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
