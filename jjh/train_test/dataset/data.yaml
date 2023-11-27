@@ -1,0 +1,5 @@
+train: /home/jupyter/train_test/dataset/train/images
+val: /home/jupyter/train_test/dataset/valid/images
+
+nc: 3
+names: ['car', 'bus', 'truck']
