@@ -127,7 +127,9 @@ ver.2
 #### ver.2 어노테이션 결과
 ![right_anotation](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/91cc5de4-ed4b-4d45-8872-462989c25127)
 
-조정된 파라미터로 재학습된 결과 교차선을 차로 인식하여 어노테이션 하는 문제를 개선시킬 수 있었다.
+조정된 파라미터로 재학습된 결과 교차선을 차로 인식하여 anotation되는 문제를 개선시킬 수 있었다.
+
+
 
 ---
 #### Refrence
