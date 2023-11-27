@@ -1,4 +1,5 @@
 # 3monkey_yolo project : 고속도로 cctv📡 프로젝트
+![](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/4cf2ccbb-8a9a-4c5d-809f-3ccccfe34a0c)
 <br/>
 <br/>
 <br/>
