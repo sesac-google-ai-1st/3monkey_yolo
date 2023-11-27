@@ -6,7 +6,7 @@
 <br/>
 
 <center>고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.<br/><br/>
-yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다. </center><br/><br/>
+yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다.(1) </center><br/><br/>
 
 
 ![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/25107f2a-e135-40e8-952e-8179b90b753a)
@@ -100,6 +100,18 @@ ver.2
 ```
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
+
+배치 크기와 모델 훈련 시간의 관계를 살펴보자. 
+
+100개의 훈련 데이터를 가지고 80에폭 동안 훈련시킨다고 가정해보자.
+
+배치 크기=1이면, 모델은 1에폭 당 100번 훈련(가중치 업데이트), 총 8000번 훈련
+배치 크기=10이면, 모델은 1에폭 당 10번 훈련, 총 800번 훈련
+배치 크기=100이면, 모델은 1에폭 당 1번 훈련, 총 80번 훈련
+즉, 배치 크기를 키우면 1에폭 당 훈련 수가 감소하고 이로 인해 전체 훈련 횟수가 감소하여 결과적으로 전체 훈련 시간이 감소하게 된다.(3)
+
+따라서 배치사이즈를 줄여서 훈련을 더 많이 하도록 하였고 학습을 빠르게 종료하기 위해서 epoch수를 절반으로 줄여서 재 학습 해 보았다.
+
 ---
 
 ### 테스트 결과 
@@ -117,6 +129,7 @@ ver.2
 
 ---
 #### Refrence
-[yolo v8 ](https://github.com/ultralytics/ultralytics)
+(1) : [yolo v8 ](https://github.com/ultralytics/ultralytics)
+(3) : [](https://otugi.tistory.com/350)
 
 [data 출처](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
