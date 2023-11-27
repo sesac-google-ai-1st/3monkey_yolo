@@ -38,8 +38,9 @@ GCP : Vertex AI
 - validation 데이터
 1~4 채널
 ---
+### Experiment
 
-### 01_download_unzip.ipynb description
+#### 01_download_unzip.ipynb description
 버킷에서 파일을 다운로드하기 위해서 gcp jupyterLab에서 명령어를 입력해 준다. 
 
 ```
@@ -79,7 +80,7 @@ for zip_file in zip_file_paths:
 ```
 ---
 
-### xml_to_txt.ipynb description
+#### xml_to_txt.ipynb description
 coco 데이터셋 annotation 정보를 yolov8 annotation 정보로 바꿔준다. 
 ```
 def to_yolov8(y):
@@ -110,7 +111,7 @@ def write_yolov8_txt(folder, annotation):
     f.write("{} {} {} {} {}\n".format(box[0], box[1], box[2], box[3], box[4]))
 ```
 ---
-###  08_yolov8.ipynb description
+####  08_yolov8.ipynb description
 🚀yolo nano 모델을 활용하여서 24천 건의 3가지 라벨 데이터를 학습 시켰다.
 하이퍼 파라미터는 아래와 같다.
 
@@ -122,6 +123,7 @@ ver.2
 ```
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
+
 
 배치 크기와 모델 훈련 시간의 관계를 살펴보자. 
 
@@ -138,7 +140,7 @@ ver.2
  
 ---
 
-### 테스트 결과 
+### Results Analysis
 
 #### ver.1 어노테이션 결과
 ![miss_anotation](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/d5a52da2-f43c-43c5-a9b8-731e07e1da35)
@@ -152,7 +154,7 @@ ver.2
 조정된 파라미터로 재학습된 결과 교차선을 차로 인식하여 anotation되는 문제를 개선시킬 수 있었다.
 
 
-### ver.1 result 
+#### ver.1 result 
 |epochs|recall|mAP50|mAP50-95|
 |---|---|---|---|
 |96|0.85379|0.89566|0.73628|
@@ -162,7 +164,7 @@ ver.2
 |100|0.85461|0.89536|0.73629|
 
 
-### ver.2 result 
+#### ver.2 result 
 |epochs|recall|mAP50|mAP50-95|
 |---|---|---|---|
 |46|0.83281|0.86212|0.71109|
