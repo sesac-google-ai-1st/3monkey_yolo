@@ -131,6 +131,6 @@ ver.2
 #### Refrence
 (1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
 
-(3) : [  ](https://otugi.tistory.com/350)
+(3) : [epochs,batch](https://otugi.tistory.com/350)
 
 [data 출처](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
