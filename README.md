@@ -4,6 +4,7 @@
 <br/>
 <br/>
 <br/>
+### Project Description
 
 <center>고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.<br/><br/>
 yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다.(1) </center><br/><br/>
@@ -16,8 +17,30 @@ yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional netwo
 이러한 여러가지 장점으로 인해서 이번 프로젝트의 알고리즘으로 yolo를 선정하게 되었습니다.   
 
 ---
+### Preferences
 
-### 01_download_unzip.ipynb description
+GCP : Vertex AI
+인스턴스 노트북 사양 : 
+- 환경 : pytorch:1.13
+- 머신유형 : cpu 32개 메모리 120gb, gpu v100 4장
+- 디스크 : data 200gb, boot 200gb
+
+개발 환경 : 
+- python =3.10
+- pandas
+- numpy
+- xmltodict (xml파일 dict형으로 변환)
+- ultralytics = 8.0.20 (최신버전은 에폭당 클래스 map 확인 불가. 버전 낮춤.)
+
+데이터(2)
+- tarin 데이터
+1~4 채널
+- validation 데이터
+1~4 채널
+---
+### Experiment
+
+#### 01_download_unzip.ipynb description
 버킷에서 파일을 다운로드하기 위해서 gcp jupyterLab에서 명령어를 입력해 준다. 
 
 ```
@@ -57,7 +80,7 @@ for zip_file in zip_file_paths:
 ```
 ---
 
-### xml_to_txt.ipynb description
+#### xml_to_txt.ipynb description
 coco 데이터셋 annotation 정보를 yolov8 annotation 정보로 바꿔준다. 
 ```
 def to_yolov8(y):
@@ -88,7 +111,7 @@ def write_yolov8_txt(folder, annotation):
     f.write("{} {} {} {} {}\n".format(box[0], box[1], box[2], box[3], box[4]))
 ```
 ---
-###  08_yolov8.ipynb description
+####  08_yolov8.ipynb description
 🚀yolo nano 모델을 활용하여서 24천 건의 3가지 라벨 데이터를 학습 시켰다.
 하이퍼 파라미터는 아래와 같다.
 
@@ -101,6 +124,7 @@ ver.2
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
 
+
 배치 크기와 모델 훈련 시간의 관계를 살펴보자. 
 
 100개의 훈련 데이터를 가지고 80에폭 동안 훈련시킨다고 가정해보자.  
@@ -111,12 +135,14 @@ ver.2
 즉, 배치 크기를 키우면 1에폭 당 훈련 수가 감소하고 이로 인해 전체 훈련 횟수가 감소하여 결과적으로 전체 훈련 시간이 감소하게 된다.(3)  
 
 아래 gif를 보면 패턴에 대해서 과하게 인식하여서 교차선 디자인까지 anotation되었다고 추론.   
-정성정 평가를 기준으로 해당 상황을 오버피팅이 상황이라고 간주하여 경량 학습을 진행 할 수 있도록 파라마터 조정을 시도하였다. 
+정성정 평가를 기준으로 해당 상황을 오버피팅이 상황이라고 간주하여 경량 학습을 진행 할 수 있도록 파라마터 조정을 시도하기 위해서 후속연구를 진행 할 예정.
+
+뿐만 아니라, medium 모델을 통해서 성능 개선을 위한 후속 연구 진행 중
 
  
 ---
 
-### 테스트 결과 
+### Results Analysis
 
 #### ver.1 어노테이션 결과
 ![miss_anotation](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/d5a52da2-f43c-43c5-a9b8-731e07e1da35)
@@ -130,30 +156,30 @@ ver.2
 조정된 파라미터로 재학습된 결과 교차선을 차로 인식하여 anotation되는 문제를 개선시킬 수 있었다.
 
 
-### ver.1 result 
-|epochs|mAP50|mAP50-95|
-|---|---|---|
-|96|33333|4444|
-|97|33333|4444|
-|98|33333|4444|
-|99|33333|4444|
-|100|33333|4444|
+#### ver.1 result 
+|epochs|recall|mAP50|mAP50-95|
+|---|---|---|---|
+|96|0.85379|0.89566|0.73628|
+|97|0.85377|0.89568|0.7364|
+|98|0.85408|0.89556|0.7365|
+|99|0.85344|0.89539|0.73649|
+|100|0.85461|0.89536|0.73629|
 
 
-### ver.2 result 
-|epochs|mAP50|mAP50-95|
-|---|---|---|
-|46|0.86212|0.71109|
-|47|0.86266|0.71187|
-|48|0.86305|0.71207|
-|49|0.86363|0.7121|
-|50|0.86254|0.7112|
+#### ver.2 result 
+|epochs|recall|mAP50|mAP50-95|
+|---|---|---|---|
+|46|0.83281|0.86212|0.71109|
+|47|0.8393|0.86266|0.71187|
+|48|0.83697|0.86305|0.71207|
+|49|0.83767|0.86363|0.7121|
+|50|0.83431|0.86254|0.7112|
 
 
 ---
 #### Refrence
 (1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
-
+(2) : [AI허브 cctv데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=164)
+  
 (3) : [epochs,batch](https://otugi.tistory.com/350)
 
-[data 출처](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
