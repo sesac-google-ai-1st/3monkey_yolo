@@ -1,10 +1,12 @@
-# 3monkey_yolo project : 고속도로 cctv📡 프로젝트
+## 3monkey_yolo project : 고속도로 cctv📡 프로젝트
+
+![제목을-입력해주세요_-005 (1)](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/9966c3b0-b4eb-4457-80cb-4a8a510133b4)
 <br/>
 <br/>
 <br/>
 
 <center>고속도로 cctv 데이터를 활용하여 Gcp vertex ai로 yolo v8 모델로 학습한 프로젝트 입니다.<br/><br/>
-yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다. </center><br/><br/>
+yolo는 아래와 같이 하나의 컨볼루션 네트워크(convolutional network)가 여러 bounding box와 그 bounding box의 클래스 확률을 동시에 계산해 줍니다.   YOLO는 이미지 전체를 학습하여 곧바로 검출 성능(detection performance)을 최적화합니다.   YOLO의 이런 통합된 모델은 기존의 객체 검출 모델에 비해 여러 가지 장점이 있습니다.(1) </center><br/><br/>
 
 
 ![image](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/25107f2a-e135-40e8-952e-8179b90b753a)
@@ -98,6 +100,20 @@ ver.2
 ```
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
+
+배치 크기와 모델 훈련 시간의 관계를 살펴보자. 
+
+100개의 훈련 데이터를 가지고 80에폭 동안 훈련시킨다고 가정해보자.  
+
+배치 크기=1이면, 모델은 1에폭 당 100번 훈련(가중치 업데이트), 총 8000번 훈련  
+배치 크기=10이면, 모델은 1에폭 당 10번 훈련, 총 800번 훈련  
+배치 크기=100이면, 모델은 1에폭 당 1번 훈련, 총 80번 훈련  
+즉, 배치 크기를 키우면 1에폭 당 훈련 수가 감소하고 이로 인해 전체 훈련 횟수가 감소하여 결과적으로 전체 훈련 시간이 감소하게 된다.(3)  
+
+아래 gif를 보면 패턴에 대해서 과하게 인식하여서 교차선 디자인까지 anotation되었다고 추론.   
+정성정 평가를 기준으로 해당 상황을 오버피팅이 상황이라고 간주하여 경량 학습을 진행 할 수 있도록 파라마터 조정을 시도하였다. 
+
+ 
 ---
 
 ### 테스트 결과 
@@ -115,6 +131,8 @@ ver.2
 
 ---
 #### Refrence
-[yolo v8 ](https://github.com/ultralytics/ultralytics)
+(1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
+
+(3) : [epochs,batch](https://otugi.tistory.com/350)
 
 [data 출처](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=164)
