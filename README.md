@@ -156,6 +156,18 @@ ver.2
 조정된 파라미터로 재학습된 결과 교차선을 차로 인식하여 anotation되는 문제를 개선시킬 수 있었다.
 
 
+#### ver.3
+![yj_after_model](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/90c3d62f-a38d-4900-a3c0-8c37c276ad28)
+과적합되었다는 것을 검증하기 위해서 ver1의 모델에서 batch수는 그대로 하고 epochs수를 줄인 모델로 다시 테스트를 진행하였다.
+ 아래 mAP수치가 ver1 > ver3 > ver2 순이고 ver1에서 anotation한 가중치보다 적게 표시되지만 여전히 miss anotation이 되는 것을 확인 할 수 있다. 
+
+이 결과를 바탕으로 nano 모델의 첫 번째 학습은 과적합으로 간주하고, ver.2로 학습을 종결하고자 한다. 
+
+#### 번 외
+![jh_medium_model(2) (1)](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/c0d32374-a205-4a93-9da1-b5d3a62664a8)
+
+ COCO에서 50.2의 mAP를 달성하였고 다양한 작업별 domain들에서 YOLOv8(4)은 YOLOv5보다 높은 성능을 보였던 YOLOv8m (medium)로 학습을 진행한 모델로 테스트를 해본 결과 특별한 파라미터 튜닝없이도 깔끔한 anotation이 되어있는걸을 확인할 수 있었다.
+
 #### ver.1 result 
 |epochs|recall|mAP50|mAP50-95|
 |---|---|---|---|
@@ -175,6 +187,15 @@ ver.2
 |49|0.83767|0.86363|0.7121|
 |50|0.83431|0.86254|0.7112|
 
+#### ver.3 result 
+|epochs|recall|mAP50|mAP50-95|
+|---|---|---|---|
+|46|0.83129|0.88988|0.72409|
+|47|0.8345|0.89061|0.72499|
+|48|0.83976|0.89115|0.72532|
+|49|0.84041|0.89097|0.72546|
+|50|0.83566|0.88789|0.72336|
+
 
 ---
 #### Refrence
@@ -182,4 +203,4 @@ ver.2
 (2) : [AI허브 cctv데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=164)
   
 (3) : [epochs,batch](https://otugi.tistory.com/350)
-
+(4) : [yolo모델 비교](https://velog.io/@qtly_u/n4ptcz54)
