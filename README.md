@@ -201,6 +201,6 @@ ver.2
 #### Refrence
 (1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
 (2) : [AI허브 cctv데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=164)
-  
 (3) : [epochs,batch](https://otugi.tistory.com/350)  
+
 (4) : [yolo모델 비교](https://velog.io/@qtly_u/n4ptcz54)
