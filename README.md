@@ -124,6 +124,10 @@ ver.2
 !yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=128 cache=True device=0,1,2,3
 ```
 
+ver.3 
+```
+!yolo task=detect mode=train model=yolov8n.pt data=ddd.yaml epochs=50 imgsz=640 batch=92 cache=True device=0,1,2,3
+```
 
 배치 크기와 모델 훈련 시간의 관계를 살펴보자. 
 
@@ -163,7 +167,7 @@ ver.2
 
 이 결과를 바탕으로 nano 모델의 첫 번째 학습은 과적합으로 간주하고, ver.2로 학습을 종결하고자 한다. 
 
-#### 번 외
+#### +실험험
 ![jh_medium_model(2) (1)](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/c0d32374-a205-4a93-9da1-b5d3a62664a8)
 
  COCO에서 50.2의 mAP를 달성하였고 다양한 작업별 domain들에서 YOLOv8(4)은 YOLOv5보다 높은 성능을 보였던 YOLOv8m (medium)로 학습을 진행한 모델로 테스트를 해본 결과 특별한 파라미터 튜닝없이도 깔끔한 anotation이 되어있는걸을 확인할 수 있었다.
@@ -196,11 +200,19 @@ ver.2
 |49|0.84041|0.89097|0.72546|
 |50|0.83566|0.88789|0.72336|
 
+#### +실험 result 
+|epochs|recall|mAP50|mAP50-95|
+|---|---|---|---|
+|96|0.89248|0.93703|0.79761|
+|97|0.89314|0.93646|0.79773|
+|98|0.89276|0.93639|0.79785|
+|99|0.89245|0.93674|0.79782|
+|100|0.89197|0.93677|0.7979|
+
 
 ---
 #### Refrence
 (1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
 (2) : [AI허브 cctv데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=164)
 (3) : [epochs,batch](https://otugi.tistory.com/350)  
-
 (4) : [yolo모델 비교](https://velog.io/@qtly_u/n4ptcz54)
