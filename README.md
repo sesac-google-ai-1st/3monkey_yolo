@@ -157,7 +157,7 @@ ver.2
 
 
 #### ver.3
-![yj_after_model](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/90c3d62f-a38d-4900-a3c0-8c37c276ad28)
+![yj_after_model](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/90c3d62f-a38d-4900-a3c0-8c37c276ad28)  
 과적합되었다는 것을 검증하기 위해서 ver1의 모델에서 batch수는 그대로 하고 epochs수를 줄인 모델로 다시 테스트를 진행하였다.
  아래 mAP수치가 ver1 > ver3 > ver2 순이고 ver1에서 anotation한 가중치보다 적게 표시되지만 여전히 miss anotation이 되는 것을 확인 할 수 있다. 
 
@@ -202,5 +202,5 @@ ver.2
 (1) : [yolo v8](https://github.com/ultralytics/ultralytics)  
 (2) : [AI허브 cctv데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=164)
   
-(3) : [epochs,batch](https://otugi.tistory.com/350)
+(3) : [epochs,batch](https://otugi.tistory.com/350)  
 (4) : [yolo모델 비교](https://velog.io/@qtly_u/n4ptcz54)
