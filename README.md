@@ -173,7 +173,7 @@ ver.3
 
 이 결과를 바탕으로 nano 모델의 첫 번째 학습은 과적합으로 간주하고, ver.2로 학습을 종결하고자 한다. 
 
-#### +실험험
+#### +실험
 ![jh_medium_model(2) (1)](https://github.com/sesac-google-ai-1st/3monkey_yolo/assets/69001369/c0d32374-a205-4a93-9da1-b5d3a62664a8)
 
  COCO에서 50.2의 mAP를 달성하였고 다양한 작업별 domain들에서 YOLOv8(4)은 YOLOv5보다 높은 성능을 보였던 YOLOv8m (medium)로 학습을 진행한 모델로 테스트를 해본 결과 특별한 파라미터 튜닝없이도 깔끔한 anotation이 되어있는걸을 확인할 수 있었다.
